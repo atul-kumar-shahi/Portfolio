@@ -1,5 +1,11 @@
 "use client";
-import React from "react";
+import React, {
+  ElementType,
+  ComponentPropsWithRef,
+  ReactNode,
+  useRef,
+//   RefObject,
+} from "react";
 import {
   motion,
   useAnimationFrame,
@@ -7,28 +13,31 @@ import {
   useMotionValue,
   useTransform,
 } from "motion/react";
-import { useRef } from "react";
 import { cn } from "@/utils/cn";
 
-export function Button({
+// Generic polymorphic props
+type ButtonProps<T extends ElementType = "button"> = {
+  borderRadius?: string;
+  children: ReactNode;
+  as?: T;
+  containerClassName?: string;
+  borderClassName?: string;
+  duration?: number;
+  className?: string;
+} & Omit<ComponentPropsWithRef<T>, "as" | "children" | "className">;
+
+export function Button<T extends ElementType = "button">({
   borderRadius = "1.75rem",
   children,
-  as: Component = "button",
+  as,
   containerClassName,
   borderClassName,
   duration,
   className,
   ...otherProps
-}: {
-  borderRadius?: string;
-  children: React.ReactNode;
-  as?: any;
-  containerClassName?: string;
-  borderClassName?: string;
-  duration?: number;
-  className?: string;
-  [key: string]: any;
-}) {
+}: ButtonProps<T>) {
+  const Component = as || "button";
+
   return (
     <Component
       className={cn(
@@ -36,7 +45,7 @@ export function Button({
         containerClassName,
       )}
       style={{
-        borderRadius: borderRadius,
+        borderRadius,
       }}
       {...otherProps}
     >
@@ -59,9 +68,7 @@ export function Button({
           "relative flex h-full w-full items-center justify-center border border-slate-800 bg-slate-900/[0.8] text-sm text-white antialiased backdrop-blur-xl",
           className,
         )}
-        style={{
-          borderRadius: `calc(${borderRadius} * 0.96)`,
-        }}
+        style={{ borderRadius: `calc(${borderRadius} * 0.96)` }}
       >
         {children}
       </div>
@@ -69,37 +76,38 @@ export function Button({
   );
 }
 
+type MovingBorderProps = {
+  children: ReactNode;
+  duration?: number;
+  rx?: string;
+  ry?: string;
+  className?: string;
+  style?: React.CSSProperties;
+};
+
 export const MovingBorder = ({
   children,
   duration = 3000,
   rx,
   ry,
   ...otherProps
-}: {
-  children: React.ReactNode;
-  duration?: number;
-  rx?: string;
-  ry?: string;
-  [key: string]: any;
-}) => {
-  const pathRef = useRef<any>();
-  const progress = useMotionValue<number>(0);
+}: MovingBorderProps) => {
+    const pathRef = useRef<SVGGeometryElement | null>(null);
+    const progress = useMotionValue(0);
 
   useAnimationFrame((time) => {
     const length = pathRef.current?.getTotalLength();
     if (length) {
-      const pxPerMillisecond = length / duration;
-      progress.set((time * pxPerMillisecond) % length);
+      const pxPerMs = length / duration;
+      progress.set((time * pxPerMs) % length);
     }
   });
 
-  const x = useTransform(
-    progress,
-    (val) => pathRef.current?.getPointAtLength(val).x,
+  const x = useTransform(progress, (val) =>
+    pathRef.current?.getPointAtLength(val)?.x ?? 0,
   );
-  const y = useTransform(
-    progress,
-    (val) => pathRef.current?.getPointAtLength(val).y,
+  const y = useTransform(progress, (val) =>
+    pathRef.current?.getPointAtLength(val)?.y ?? 0,
   );
 
   const transform = useMotionTemplate`translateX(${x}px) translateY(${y}px) translateX(-50%) translateY(-50%)`;
@@ -120,7 +128,7 @@ export const MovingBorder = ({
           height="100%"
           rx={rx}
           ry={ry}
-          ref={pathRef}
+          ref={pathRef as React.Ref<SVGRectElement>}
         />
       </svg>
       <motion.div
