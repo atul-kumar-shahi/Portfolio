@@ -1,26 +1,73 @@
 @import "tailwindcss";
 
+/* Dark mode as default */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
+  --background: #0a0a0a;
+  --foreground: #ededed;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Custom iPhone X Frame Styling */
+.iphone-frame {
+  width: 300px;
+  height: 600px;
+  background: radial-gradient(circle at center, #f9f9f9 0%, #e6e6e6 100%);
+  border-radius: 60px;
+  box-shadow:
+    inset 0 0 10px rgba(0, 0, 0, 0.05),
+    0 10px 20px rgba(0, 0, 0, 0.2),
+    0 0 0 10px #f0f0f0;
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+}
+
+.iphone-frame::before {
+  content: '';
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 24px;
+  background: #ccc;
+  border-radius: 14px;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+.iphone-notch {
+  display: none;
+}
+
+.iphone-screen {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, #ffffff, #f0f0f0);
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.iphone-nav {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 5px;
+  background: #bbb;
+  border-radius: 3px;
+  opacity: 0.8;
+  z-index: 20;
 }
