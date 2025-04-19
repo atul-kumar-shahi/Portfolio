@@ -2,7 +2,7 @@
 "use client"
 import React, { useState } from 'react';
 import Image from 'next/image';
-import { Play, Share, Bookmark, Download, ChevronDown, Star, Globe, Code, Smartphone, Heart } from 'lucide-react';
+import { Play, Share, Bookmark, Download, ChevronDown, Globe, Code, Smartphone, Heart } from 'lucide-react';
 import screenshots from "@/data/screenshots.json";
 
 
