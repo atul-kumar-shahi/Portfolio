@@ -1,7 +1,9 @@
 import { CardSpotlight } from "@/components/ui/card-spotlight";
+import Link from "next/link";
 
 export function AppsCards() {
   return (
+    <Link href='/apps/details' passHref>
     <CardSpotlight className="h-96 w-96">
       <p className="text-xl font-bold relative z-20 mt-2 text-white">
         Authentication steps
@@ -20,6 +22,7 @@ export function AppsCards() {
         information and data.
       </p>
     </CardSpotlight>
+    </Link>
   );
 }
 
