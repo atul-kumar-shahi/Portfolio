@@ -1,5 +1,7 @@
+"use client";
+
 import DiscriptionPage from "@/components/app_details/DiscriptionPage";
-import VideoModal from "@/components/app_details/VideoPlayer"; // this is now self-contained
+import VideoModal from "@/components/app_details/VideoPlayer";
 import Image from "next/image";
 import {
   Share,
@@ -10,28 +12,22 @@ import {
   Smartphone,
 } from "lucide-react";
 import { appdata } from "@/data/app_cards";
+import { useSearchParams } from "next/navigation";
 
-type PageProps = {
-  params: {
-    slug: string;
-  };
-};
+const ViewPage = () => {
+  const searchParams = useSearchParams();
+  const appId = searchParams.get("appId");
+  const data = appdata.find((app) => app.id === appId);
 
-const page = async ({ params }: PageProps) => {
-  const { slug } = await params;
-  const data = appdata.find((app) => app.id === slug);
-
-  if (!data) return null;
-
+  if (!data) return <div className="text-white p-8">App not found.</div>;
 
   return (
     <div className="min-h-screen dark:bg-black text-white flex flex-col items-center px-6 md:px-12">
       <div className="relative w-full min-h-[550px] overflow-hidden">
-        {/* <div className="absolut inset-0 bg-black/50 backdrop-blur-sm z-10"></div> */}
         <div className="relative z-20 container mx-auto px-6 pt-32 pb-20">
           <div className="max-w-3xl">
             <h1 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-600 text-transparent bg-clip-text">
-              {data.title }
+              {data.title}
             </h1>
             <h2 className="text-2xl md:text-3xl font-medium mb-6 text-gray-200">
               {data.description}
@@ -80,15 +76,15 @@ const page = async ({ params }: PageProps) => {
             </div>
           </div>
         </div>
-        <div></div>
       </div>
-      <VideoModal url={data?.videoUrl}  />
+
+      <VideoModal url={data?.videoUrl} />
 
       <DiscriptionPage
         description={data?.fullDescription}
         highlight={data?.highlights}
       />
-  
+
       <div className="bg-gray-900 py-16 mx-24">
         <div className="container mx-auto px-6">
           <h2 className="text-3xl font-bold mb-8 mx-24">App Screenshots</h2>
@@ -116,5 +112,4 @@ const page = async ({ params }: PageProps) => {
   );
 };
 
-export default page;
-
+export default ViewPage;

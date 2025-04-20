@@ -7,8 +7,8 @@ export function AppsCards() {
   return (
     <div className="flex flex-wrap gap-6 justify-center">
       {appdata.map((item, index) => (
-        <Link href={`/apps/${item.id}`} passHref key={index}>
-          <CardSpotlight className="h-96 w-96 cursor-pointer transition-all hover:scale-105">
+        <Link href={`/apps/view?appId=${item.id}`} passHref key={index}>
+        <CardSpotlight className="h-96 w-96 cursor-pointer transition-all hover:scale-105">
             <div className="relative z-20">
               <Image
                 src={item.imageLink}
