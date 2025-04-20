@@ -1,7 +1,7 @@
 // app/layout.tsx
 import "@/app/globals.css";
 import type { Metadata } from "next";
-import Footer from "@/components/AppFooter";
+import Footer from "@/components/app_details/AppFooter";
 
 export const metadata: Metadata = {
     title: "Create Next App",
@@ -14,11 +14,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className="flex flex-col min-h-screen bg-black text-white">
-        <main className="flex-grow">{children}</main>
-        <Footer />
-      </body>
-    </html>
+
+    <div>
+
+      <main className="flex-grow">{children}</main>
+      <Footer />
+    </div>
+  
   );
 }

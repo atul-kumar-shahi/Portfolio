@@ -1,28 +1,35 @@
-import { CardSpotlight } from "@/components/ui/card-spotlight";
+import { CardSpotlight } from "@/components/app_details/card-spotlight";
+import { appdata } from "@/data/app_cards";
+import Image from "next/image";
 import Link from "next/link";
 
 export function AppsCards() {
   return (
-    <Link href='/apps/details' passHref>
-    <CardSpotlight className="h-96 w-96">
-      <p className="text-xl font-bold relative z-20 mt-2 text-white">
-        Authentication steps
-      </p>
-      <div className="text-neutral-200 mt-4 relative z-20">
-        Follow these steps to secure your account:
-        <ul className="list-none  mt-2">
-          <Step title="Enter your email address" />
-          <Step title="Create a strong password" />
-          <Step title="Set up two-factor authentication" />
-          <Step title="Verify your identity" />
-        </ul>
-      </div>
-      <p className="text-neutral-300 mt-4 relative z-20 text-sm">
-        Ensuring your account is properly secured helps protect your personal
-        information and data.
-      </p>
-    </CardSpotlight>
-    </Link>
+    <div className="flex flex-wrap gap-6 justify-center">
+      {appdata.map((item, index) => (
+        <Link href={`/apps/${item.id}`} passHref key={index}>
+          <CardSpotlight className="h-96 w-96 cursor-pointer transition-all hover:scale-105">
+            <div className="relative z-20">
+              <Image
+                src={item.imageLink}
+                height={720}
+                width={720}
+                alt="App Image"
+                className="rounded-xl mb-4"
+              />
+              <div className="text-neutral-200 mt-4">
+                {item.description}
+                <ul className="list-none mt-2 space-y-1">
+                  {item.techStackt.map((tech, techIndex) => (
+                    <Step key={techIndex} title={tech} />
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </CardSpotlight>
+        </Link>
+      ))}
+    </div>
   );
 }
 
