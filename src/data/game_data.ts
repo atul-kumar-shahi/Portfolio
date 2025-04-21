@@ -1,0 +1,85 @@
+// utils/gameData.ts
+import flappyBirdAnim from "../../public/flappy.json"; // example path
+
+export const gameData = [
+  {
+    id: "flappy-bird",
+    title: "Flappy Bird",
+    lottie: flappyBirdAnim,
+    github: "https://github.com/your/flappybird",
+    playUrl: "https://flappy-bird-game.vercel.app/",
+    credit: "Original by Neal.fun, cloned by you",
+  },
+  {
+    id: "pacman",
+    title: "Pac-Man",
+    image: "/pacman.png",
+    github: "https://github.com/masonicGIT/pacman",
+    playUrl: "https://masonicgit.github.io/pacman/",
+    credit: "Masonic - HTML5 Pac-Man",
+  },
+  {
+    id: "breakout",
+    title: "Breakout",
+    image: "/breakout.png",
+    github: "https://github.com/end3r/Gamedev-Canvas-workshop",
+    playUrl: "https://end3r.github.io/Gamedev-Canvas-workshop/lesson10.html",
+    credit: "Andrzej Mazur - MDN Gamedev Tutorial",
+  },
+  {
+    id: "2048",
+    title: "2048",
+    image: "/2048.png",
+    github: "https://github.com/gabrielecirulli/2048",
+    playUrl: "https://play2048.co/",
+    credit: "Gabriele Cirulli - Original 2048 Game",
+  },
+  {
+    id: "hextris",
+    title: "Hextris",
+    image: "/hextris.png",
+    github: "https://github.com/Hextris/hextris",
+    playUrl: "https://hextris.io/",
+    credit: "Hextris Team - Addictive Hexagonal Puzzle",
+  },
+  {
+    id: "tetris",
+    title: "Tetris",
+    image: "/tetris.png",
+    github: "https://github.com/jakesgordon/javascript-tetris",
+    playUrl: "https://jakesgordon.github.io/javascript-tetris/",
+    credit: "Jake Gordon - JavaScript Tetris",
+  },
+  {
+    id: "chess",
+    title: "Chess",
+    image: "/chess.png",
+    github: "https://github.com/lhartikk/simple-chess-ai",
+    playUrl: "https://simplechessai.herokuapp.com/",
+    credit: "Lauri Hartikka - Simple Chess AI",
+  },
+  {
+    id: "platformer",
+    title: "Platformer",
+    image: "/platformer.png",
+    github: "https://github.com/photonstorm/phaser-examples",
+    playUrl: "https://examples.phaser.io/view.html?src=games/starstruck/index.js",
+    credit: "Phaser Examples - Starstruck Platformer",
+  },
+  {
+    id: "minesweeper",
+    title: "Minesweeper",
+    image: "/minesweeper.png",
+    github: "https://github.com/ziebelje/minesweeper",
+    playUrl: "https://ziebelje.github.io/minesweeper/",
+    credit: "Josh Ziebell - JavaScript Minesweeper",
+  },
+  {
+    id: "doodle-jump",
+    title: "Doodle Jump",
+    image: "/doodle.png",
+    github: "https://github.com/chandrunaik/HTML5-Doodle-Jump",
+    playUrl: "https://chandrunaik.github.io/HTML5-Doodle-Jump/",
+    credit: "Chandru Naik - HTML5 Doodle Jump",
+  }
+];
