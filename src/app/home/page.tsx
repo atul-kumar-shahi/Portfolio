@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import PhoneScreen from '@/components/PhoneScreen';
 import { Button } from '@/components/ui/moving-border';
+import animationData from '../../../public/animation.json'; // JSON object
 
 
 const HeroSection: React.FC = () => {
@@ -73,7 +74,7 @@ const HeroSection: React.FC = () => {
                 
             </motion.div>
           </motion.div>
-      <PhoneScreen/>
+      <PhoneScreen animationData={animationData} />
         
         </div>
       </div>   
