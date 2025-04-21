@@ -10,7 +10,7 @@ import animationData from '../../../public/animation.json'; // JSON object
 
 const HeroSection: React.FC = () => {
   return (
-    <section className="relative min-h-[calc(100vh-80px)] flex items-center bg-black overflow-hidden flex-center">
+    <section className="relative min-h-[calc(100vh-80px)] flex items-center bg-black overflow-hidden flex-center m-20">
       <div className="container mx-auto px-4 md:px-6 z-10">
         <div className="flex flex-col lg:flex-row items-center justify-center gap-12">
           {/* Left Content Area */}
