@@ -1,5 +1,7 @@
 // utils/gameData.ts
-import flappyBirdAnim from "../../public/flappy.json"; // example path
+import flappyBirdAnim from "../../public/flappy.json";
+import packman from "../../public/packman.json";
+import hextrix from "../../public/hextrix.json";
 
 export const gameData = [
   {
@@ -13,59 +15,20 @@ export const gameData = [
   {
     id: "pacman",
     title: "Pac-Man",
-    image: "/pacman.png",
+    lottie: packman,
     github: "https://github.com/masonicGIT/pacman",
     playUrl: "https://masonicgit.github.io/pacman/",
     credit: "Masonic - HTML5 Pac-Man",
   },
   {
-    id: "breakout",
-    title: "Breakout",
-    image: "/breakout.png",
-    github: "https://github.com/end3r/Gamedev-Canvas-workshop",
-    playUrl: "https://end3r.github.io/Gamedev-Canvas-workshop/lesson10.html",
-    credit: "Andrzej Mazur - MDN Gamedev Tutorial",
-  },
-  {
-    id: "2048",
-    title: "2048",
-    image: "/2048.png",
-    github: "https://github.com/gabrielecirulli/2048",
-    playUrl: "https://play2048.co/",
-    credit: "Gabriele Cirulli - Original 2048 Game",
-  },
-  {
     id: "hextris",
     title: "Hextris",
-    image: "/hextris.png",
+    lottie: hextrix,
     github: "https://github.com/Hextris/hextris",
     playUrl: "https://hextris.io/",
     credit: "Hextris Team - Addictive Hexagonal Puzzle",
   },
-  {
-    id: "tetris",
-    title: "Tetris",
-    image: "/tetris.png",
-    github: "https://github.com/jakesgordon/javascript-tetris",
-    playUrl: "https://jakesgordon.github.io/javascript-tetris/",
-    credit: "Jake Gordon - JavaScript Tetris",
-  },
-  {
-    id: "chess",
-    title: "Chess",
-    image: "/chess.png",
-    github: "https://github.com/lhartikk/simple-chess-ai",
-    playUrl: "https://simplechessai.herokuapp.com/",
-    credit: "Lauri Hartikka - Simple Chess AI",
-  },
-  {
-    id: "platformer",
-    title: "Platformer",
-    image: "/platformer.png",
-    github: "https://github.com/photonstorm/phaser-examples",
-    playUrl: "https://examples.phaser.io/view.html?src=games/starstruck/index.js",
-    credit: "Phaser Examples - Starstruck Platformer",
-  },
+  
   {
     id: "minesweeper",
     title: "Minesweeper",
@@ -75,11 +38,44 @@ export const gameData = [
     credit: "Josh Ziebell - JavaScript Minesweeper",
   },
   {
-    id: "doodle-jump",
-    title: "Doodle Jump",
-    image: "/doodle.png",
-    github: "https://github.com/chandrunaik/HTML5-Doodle-Jump",
-    playUrl: "https://chandrunaik.github.io/HTML5-Doodle-Jump/",
-    credit: "Chandru Naik - HTML5 Doodle Jump",
-  }
+    id: "snake",
+    title: "Snake Game",
+    image: "/snake.png",
+    github: "https://github.com/patorjk/JavaScript-Snake",
+    playUrl: "https://patorjk.com/games/snake/",
+    credit: "Patrick Gillespie - JavaScript Snake",
+  },
+
+  {
+    id: "2048-cupcakes",
+    title: "2048 Cupcakes",
+    image: "/2048-cupcakes.png",
+    github: "https://github.com/0x0800/2048-CUPCAKES",
+    playUrl: "https://0x0800.github.io/2048-CUPCAKES/",
+    credit: "0x0800 - 2048 Cupcakes Edition",
+  },
+  {
+    id: "asteroids",
+    title: "Asteroids",
+    image: "/asteroids.png",
+    github: "https://github.com/dmcinnes/HTML5-Asteroids",
+    playUrl: "https://www.kevs3d.co.uk/dev/asteroids/",
+    credit: "Kevin Roast - HTML5 Asteroids",
+  },
+  {
+    id: "connect-four",
+    title: "Connect Four",
+    image: "/connect-four.png",
+    github: "https://github.com/kenrick95/c4",
+    playUrl: "https://kenrick95.github.io/c4/",
+    credit: "Kenrick95 - Connect Four Game",
+  },
+  {
+    id: "breakout",
+    title: "Breakout",
+    image: "/breakout.png",
+    github: "https://github.com/end3r/Gamedev-Canvas-workshop",
+    playUrl: "https://end3r.github.io/Gamedev-Canvas-workshop/lesson10.html",
+    credit: "Andrzej Mazur - MDN Gamedev Tutorial",
+  },
 ];

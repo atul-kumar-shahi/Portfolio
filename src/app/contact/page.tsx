@@ -52,10 +52,10 @@ const Page = () => {
   };
 
   return (
-    <main className="flex justify-center items-center min-h-screen w-full bg-black text-white px-4 my-10">
+    <main className="flex justify-center items-center min-h-screen w-full bg-black text-white px-4 mt-20">
       <div className="w-full max-w-7xl mx-auto flex flex-col">
         <motion.h1
-          className="text-4xl md:text-5xl font-bold text-center mb-16"
+          className="text-4xl md:text-5xl font-bold text-center "
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}

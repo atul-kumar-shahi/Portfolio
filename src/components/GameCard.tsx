@@ -20,7 +20,7 @@ type GameCardProps = {
     playUrl: string;
     github: string;
     credit: string;
-    gameUrl?: string; // Add this
+    gameUrl?: string; 
   };
   
 
@@ -64,7 +64,7 @@ export default function GameCard({
           {isClient && (
             <Dialog>
               <DialogTrigger asChild>
-                <Button className="bg-green-600 hover:bg-green-700 text-white px-5">
+                <Button className="bg-green-600 hover:bg-green-700 text-white px-5 w-full ">
                   Play Now
                 </Button>
               </DialogTrigger>
@@ -79,9 +79,6 @@ export default function GameCard({
             </Dialog>
           )}
           <Link href={github} target="_blank" rel="noopener noreferrer">
-            <Button variant="outline" className="text-white hover:text-gray-200">
-              GitHub
-            </Button>
           </Link>
         </div>
       </div>
