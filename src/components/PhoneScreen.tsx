@@ -15,7 +15,7 @@ type PhoneScreenProps = {
 
 export default function PhoneScreen({ animationData }: PhoneScreenProps) {
   return (
-    <div className="flex justify-end h-screen bg-black overflow-hidden px-5 py-4">
+    <div className="flex justify-end h-screen overflow-hidden px-5 py-4">
       <motion.div
         className="iphone-frame cursor-grab active:cursor-grabbing fixed -right-2 mr-10"
         whileTap={{ scale: 0.95 }}

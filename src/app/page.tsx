@@ -1,13 +1,12 @@
-import { AppsCards } from "@/components/app_details/AppsCard";
-import HeroSection from "./home/page";
-
+import HeroSection from "@/components/HeroSection";
+import { TechStack } from "@/components/TechStack";
 
 
 export default function Home() {
   return (
    <div>
-    <HeroSection/>
-    <AppsCards/>
+   <HeroSection/>
+   <TechStack/>
    </div>
   );
 }

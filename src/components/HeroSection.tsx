@@ -5,11 +5,11 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import PhoneScreen from "@/components/PhoneScreen";
 import { Button } from "@/components/ui/moving-border";
-import animationData from "../../../public/animation.json"; // JSON object
+import animationData from "../../public/animation.json"; // JSON object
 
 const HeroSection: React.FC = () => {
   return (
-    <section className="relative min-h-[calc(100vh-80px)] flex items-center bg-black overflow-hidden py-16 px-4 sm:px-6 md:px-10 lg:px-20">
+    <section className="relative min-h-[calc(100vh-80px)] flex items-center  overflow-hidden py-16 px-4 sm:px-6 md:px-10 lg:px-20">
       <div className="container mx-auto px-4 md:px-6 z-10">
         <div className="flex flex-col-reverse lg:flex-row items-center justify-center gap-12">
           {" "}
