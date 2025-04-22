@@ -1,63 +1,132 @@
-import { CardSpotlight } from "@/components/app_details/card-spotlight";
-import { appdata } from "@/data/app_cards";
+// components/AppsCards.tsx
+"use client"
+import { useState, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
+import { appdata } from "@/data/app_cards";
+
+// TypeScript interface for app data
+interface AppData {
+  id: string;
+  imageLink: string;
+  title: string;
+  description: string;
+  techStackt: string[];
+}
 
 export function AppsCards() {
   return (
-    <div className="flex flex-wrap gap-6 justify-center">
-      {appdata.map((item, index) => (
-        <Link href={`/apps/view?appId=${item.id}`} passHref key={index}>
-        <CardSpotlight className="h-96 w-96 cursor-pointer transition-all hover:scale-105">
-            <div className="relative z-20">
-              <Image
-                src={item.imageLink}
-                height={720}
-                width={720}
-                alt="App Image"
-                className="rounded-xl mb-4"
-              />
-              <div className="text-neutral-200 mt-4">
-                {item.description}
-                <ul className="list-none mt-2 space-y-1">
-                  {item.techStackt.map((tech, techIndex) => (
-                    <Step key={techIndex} title={tech} />
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </CardSpotlight>
-        </Link>
+    <div className="flex flex-wrap gap-8 justify-center">
+      {appdata.map((item: AppData, index: number) => (
+        <AppCard key={index} app={item} />
       ))}
     </div>
   );
 }
 
-const Step = ({ title }: { title: string }) => {
-  return (
-    <li className="flex gap-2 items-start">
-      <CheckIcon />
-      <p className="text-white">{title}</p>
-    </li>
-  );
-};
+interface AppCardProps {
+  app: AppData;
+}
 
-const CheckIcon = () => {
+function AppCard({ app }: AppCardProps) {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!cardRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
+    setMousePosition({
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top,
+    });
+  };
+
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      className="h-4 w-4 text-blue-500 mt-1 shrink-0"
-    >
-      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-      <path
-        d="M12 2c-.218 0 -.432 .002 -.642 .005l-.616 .017l-.299 .013l-.579 .034l-.553 .046c-4.785 .464 -6.732 2.411 -7.196 7.196l-.046 .553l-.034 .579c-.005 .098 -.01 .198 -.013 .299l-.017 .616l-.004 .318l-.001 .324c0 .218 .002 .432 .005 .642l.017 .616l.013 .299l.034 .579l.046 .553c.464 4.785 2.411 6.732 7.196 7.196l.553 .046l.579 .034c.098 .005 .198 .01 .299 .013l.616 .017l.642 .005l.642 -.005l.616 -.017l.299 -.013l.579 -.034l.553 -.046c4.785 -.464 6.732 -2.411 7.196 -7.196l.046 -.553l.034 -.579c.005 -.098 .01 -.198 .013 -.299l.017 -.616l.005 -.642l-.005 -.642l-.017 -.616l-.013 -.299l-.034 -.579l-.046 -.553c-.464 -4.785 -2.411 -6.732 -7.196 -7.196l-.553 -.046l-.579 -.034a28.058 28.058 0 0 0 -.299 -.013l-.616 -.017l-.318 -.004l-.324 -.001zm2.293 7.293a1 1 0 0 1 1.497 1.32l-.083 .094l-4 4a1 1 0 0 1 -1.32 .083l-.094 -.083l-2 -2a1 1 0 0 1 1.32 -1.497l.094 .083l1.293 1.292l3.293 -3.292z"
-        fill="currentColor"
-        strokeWidth="0"
-      />
-    </svg>
+    <Link href={`/apps/view?appId=${app.id}`} passHref>
+      <motion.div
+        ref={cardRef}
+        className="relative w-80 rounded-xl overflow-hidden bg-gray-900/60 backdrop-blur-lg border border-gray-800 shadow-xl cursor-pointer"
+        onMouseMove={handleMouseMove}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4 }}
+        whileHover={{ 
+          scale: 1.03,
+          transition: { duration: 0.2 }
+        }}
+      >
+        {/* Spotlight effect */}
+        {isHovered && (
+          <motion.div
+            className="absolute inset-0 pointer-events-none opacity-60"
+            style={{
+              background: `radial-gradient(circle 180px at ${mousePosition.x}px ${mousePosition.y}px, rgba(59, 130, 246, 0.3), transparent)`,
+              zIndex: 5,
+            }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.2 }}
+          />
+        )}
+
+        {/* Card Content */}
+        <div className="p-4 mt-25">
+          {/* Image with animation */}
+          <motion.div
+            className="relative h-48 w-full overflow-hidden rounded-lg mb-4"
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.3 }}
+          >
+            <Image
+              src={app.imageLink}
+              alt={app.title || "App Image"}
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 300px"
+            />
+          </motion.div>
+
+          {/* Title */}
+          <h3 className="text-xl font-bold text-white mb-2">{app.title}</h3>
+          
+          {/* Description */}
+          <p className="text-gray-300 text-sm mb-4 line-clamp-2">
+            {app.description}
+          </p>
+
+          {/* Tech Stack Chips */}
+          <div className="flex flex-wrap gap-2 mt-3">
+            {app.techStackt.map((tech, techIndex) => (
+              <TechChip key={techIndex} tech={tech} />
+            ))}
+          </div>
+        </div>
+      </motion.div>
+    </Link>
   );
-};
+}
+
+interface TechChipProps {
+  tech: string;
+}
+
+function TechChip({ tech }: TechChipProps) {
+  return (
+    <motion.span
+      className="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-xs font-medium border border-blue-500/30"
+      whileHover={{ 
+        scale: 1.1, 
+        backgroundColor: "rgba(59, 130, 246, 0.4)",
+        color: "rgba(255, 255, 255, 1)",
+        y: -2
+      }}
+      transition={{ duration: 0.2 }}
+    >
+      {tech}
+    </motion.span>
+  );
+}
