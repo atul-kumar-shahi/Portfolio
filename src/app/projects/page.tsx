@@ -1,9 +1,10 @@
+import ProjectCards from '@/components/ProjectCard'
 import React from 'react'
 
 function Projects() {
   return (
     <div>
-      Projects
+      <ProjectCards/>
     </div>
   )
 }

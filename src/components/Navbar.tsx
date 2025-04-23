@@ -48,7 +48,6 @@ export function NavigationBar() {
   const navItems = [
     { name: "Home", link: "/" },
     { name: "Projects", link: "/projects" },
-    { name: "Games", link: "/games" },
     { name: "Apps", link: "/apps" },
     { name: "Contact", link: "/contact" },
   ];
