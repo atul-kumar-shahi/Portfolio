@@ -13,6 +13,24 @@ const nextConfig: NextConfig = {
         hostname: 'github.com',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+         hostname: "covers.openlibrary.org",
+        pathname: '/**',
+      },
+      {
+        protocol: "https",
+        hostname: "covers.openlibrary.org",
+      },
+      {
+        protocol: "https",
+        hostname: "upload.wikimedia.org",
+      },
+      {
+        protocol: "https",
+        hostname: "en.wikipedia.org",
+      },
+
 
     ],
   }
