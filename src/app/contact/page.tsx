@@ -52,10 +52,10 @@ const Page = () => {
   };
 
   return (
-    <main className="flex justify-center items-center min-h-screen w-full bg-black text-white px-4 mt-20">
+    <main className="flex justify-center items-center min-h-screen w-full bg-black text-white px-4 pt-20">
       <div className="w-full max-w-7xl mx-auto flex flex-col">
         <motion.h1
-          className="text-4xl md:text-5xl font-bold text-center "
+          className="text-4xl md:text-5xl font-bold text-center pb-5 "
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -74,7 +74,7 @@ const Page = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="flex items-center justify-center pt-20 mt-12">
+            <div className="flex items-center justify-center ">
               <PhoneScreen animationData={animationData} />
             </div>
           </motion.div>
@@ -157,7 +157,7 @@ const Page = () => {
                     <textarea
                       id="message"
                       name="message"
-                      rows={5}
+                      rows={1}
                       value={form.message}
                       onChange={handleChange}
                       required

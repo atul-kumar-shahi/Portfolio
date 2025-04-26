@@ -5,14 +5,13 @@ import { portfolioProjects } from "@/data/project_data";
 import { ExternalLink } from "lucide-react";
 
 interface Project {
-  id: number; // ← changed from string to number
+  id: number;
   title: string;
   description: string;
   image: string;
   demoUrl: string;
   githubUrl: string;
 }
-
 
 interface SpotlightCardProps {
   project: Project;
@@ -35,28 +34,30 @@ const SpotlightCard = ({ project }: SpotlightCardProps) => {
     <div
       ref={cardRef}
       onMouseMove={handleMouseMove}
-      className="relative group bg-gray-900 text-white rounded-2xl border border-gray-800 overflow-hidden shadow-lg transition-transform duration-300 hover:scale-[1.02]"
+      className="relative group bg-gray-900 text-white rounded-2xl border border-gray-800 overflow-hidden shadow-lg transition-transform duration-300 hover:scale-[1.02] w-full"
       style={{
         backgroundImage:
           "radial-gradient(600px circle at var(--x, 50%) var(--y, 50%), rgba(59,130,246,0.15), transparent 60%)",
       }}
-    >
-      <Image
-        src={project.image}
-        alt={project.title}
-        width={400}
-        height={250}
-        className="object-cover w-full h-52"
-      />
-      <div className="p-6">
+    >  
+      <div className="relative h-48 sm:h-52">
+        <Image
+          src={project.image}
+          alt={project.title}
+          fill
+          sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
+          className="object-cover"
+        />
+      </div>
+      <div className="p-4">
         <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-        <p className="text-gray-300 mb-4">{project.description}</p>
-        <div className="flex gap-4">
+        <p className="text-gray-300 mb-4 text-sm sm:text-base">{project.description}</p>
+        <div className="flex gap-3 sm:gap-4 flex-wrap sm:flex-nowrap">
           <a
             href={project.demoUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md flex items-center gap-2"
+            className="bg-blue-600 hover:bg-blue-700 text-white px-3 sm:px-4 py-2 rounded-md flex items-center gap-2 text-sm sm:text-base"
           >
             <ExternalLink className="w-4 h-4" />
             Demo
@@ -65,7 +66,7 @@ const SpotlightCard = ({ project }: SpotlightCardProps) => {
             href={project.githubUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-gray-700 hover:bg-gray-800 text-white px-4 py-2 rounded-md flex items-center gap-2"
+            className="bg-gray-700 hover:bg-gray-800 text-white px-3 sm:px-4 py-2 rounded-md flex items-center gap-2 text-sm sm:text-base"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -85,14 +86,14 @@ const SpotlightCard = ({ project }: SpotlightCardProps) => {
 
 const ProjectCards = () => {
   return (
-    <div>
-      <h1 className="text-4xl text-center pt-20">Projects</h1>
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 px-6 md:px-10 xl:px-16 2xl:px-24 py-20">
+    <section className="px-10 md:px-12 lg:px-16 xl:px-40 py-16">
+      <h1 className="text-3xl md:text-4xl font-bold text-center mb-12">Projects</h1>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
         {portfolioProjects.map((project) => (
           <SpotlightCard key={project.id} project={project} />
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

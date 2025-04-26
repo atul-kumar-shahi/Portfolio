@@ -10,6 +10,7 @@ import chess from "../../../public/chess.json";
 import books from "../../../public/books.json";
 import music from "../../../public/music.json";
 import { animeData } from "@/data/anime_data";
+import Link from "next/link";
 
 export default function HobbySection() {
   return (
@@ -102,18 +103,18 @@ export default function HobbySection() {
                 recommendations for yourself!
               </p>
               <div className="flex space-x-4">
-                <a
-                  href="#"
+                <Link
+                  href="/contact"
                   className="bg-white text-gray-900 px-4 py-2 rounded-lg font-medium hover:bg-gray-100 transition-colors"
                 >
                   Contact Me
-                </a>
-                <a
-                  href="#"
+                </Link>
+                <Link
+                  href="/"
                   className="border border-white px-4 py-2 rounded-lg font-medium hover:bg-white hover:text-gray-900 transition-colors"
                 >
                   My Portfolio
-                </a>
+                </Link>
               </div>
             </div>
             <div className="mt-8 lg:mt-0 lg:w-1/2 flex justify-center">
@@ -123,60 +124,60 @@ export default function HobbySection() {
                   <div>
                     <div className="flex justify-between mb-1">
                       <span>Anime Watched</span>
-                      <span>5/100</span>
+                      <span>26/100</span>
                     </div>
                     <div className="h-2 bg-gray-700 rounded-full">
                       <div
                         className="h-2 bg-red-500 rounded-full"
-                        style={{ width: "5%" }}
+                        style={{ width: "26%" }}
                       ></div>
                     </div>
                   </div>
                   <div>
                     <div className="flex justify-between mb-1">
                       <span>Movies Watched</span>
-                      <span>4/50</span>
+                      <span>15/50</span>
                     </div>
                     <div className="h-2 bg-gray-700 rounded-full">
                       <div
                         className="h-2 bg-blue-500 rounded-full"
-                        style={{ width: "8%" }}
+                        style={{ width: "33%" }}
                       ></div>
                     </div>
                   </div>
                   <div>
                     <div className="flex justify-between mb-1">
                       <span>Books Read</span>
-                      <span>3/20</span>
+                      <span>6/20</span>
                     </div>
                     <div className="h-2 bg-gray-700 rounded-full">
                       <div
                         className="h-2 bg-green-500 rounded-full"
-                        style={{ width: "15%" }}
+                        style={{ width: "35%" }}
                       ></div>
                     </div>
                   </div>
                   <div>
                     <div className="flex justify-between mb-1">
                       <span>Chess Games</span>
-                      <span>4/100</span>
+                      <span>85/100</span>
                     </div>
                     <div className="h-2 bg-gray-700 rounded-full">
                       <div
                         className="h-2 bg-yellow-500 rounded-full"
-                        style={{ width: "4%" }}
+                        style={{ width: "85%" }}
                       ></div>
                     </div>
                   </div>
                   <div>
                     <div className="flex justify-between mb-1">
                       <span>Music Tracks</span>
-                      <span>5/500</span>
+                      <span>400/500</span>
                     </div>
                     <div className="h-2 bg-gray-700 rounded-full">
                       <div
                         className="h-2 bg-purple-500 rounded-full"
-                        style={{ width: "1%" }}
+                        style={{ width: "80%" }}
                       ></div>
                     </div>
                   </div>
@@ -192,7 +193,7 @@ export default function HobbySection() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="md:flex md:items-center md:justify-between">
             <div className="flex justify-center md:order-2 space-x-6">
-              <a href="#" className="text-gray-400 hover:text-white">
+              <Link href="#" className="text-gray-400 hover:text-white">
                 <span className="sr-only">Twitter</span>
                 <svg
                   className="h-6 w-6"
@@ -202,8 +203,8 @@ export default function HobbySection() {
                 >
                   <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
                 </svg>
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white">
+              </Link>
+              <Link href="https://github.com/atul-kumar-shahi " className="text-gray-400 hover:text-white">
                 <span className="sr-only">GitHub</span>
                 <svg
                   className="h-6 w-6"
@@ -217,8 +218,8 @@ export default function HobbySection() {
                     clipRule="evenodd"
                   />
                 </svg>
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white">
+              </Link>
+              <a href="https://www.instagram.com/atulkumar.1446?igsh=b29haHpiNjRoMHEz " className="text-gray-400 hover:text-white">
                 <span className="sr-only">Instagram</span>
                 <svg
                   className="h-6 w-6"

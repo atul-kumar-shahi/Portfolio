@@ -22,10 +22,10 @@ const Footer = () => {
               and user-friendly applications.
             </p>
             <div className="flex flex-wrap gap-4">
-              <a href="https://github.com/yourusername" aria-label="GitHub" className="text-gray-400 hover:text-teal-400 transition-colors duration-300">
+              <a href="https://github.com/atul-kumar-shahi" aria-label="GitHub" className="text-gray-400 hover:text-teal-400 transition-colors duration-300">
                 <FaGithub size={22} />
               </a>
-              <a href="https://linkedin.com/in/yourusername" aria-label="LinkedIn" className="text-gray-400 hover:text-teal-400 transition-colors duration-300">
+              <a href="https://linkedin.com/in/atul-kumar-shahi" aria-label="LinkedIn" className="text-gray-400 hover:text-teal-400 transition-colors duration-300">
                 <FaLinkedin size={22} />
               </a>
               <a href="https://twitter.com/yourusername" aria-label="Twitter" className="text-gray-400 hover:text-teal-400 transition-colors duration-300">

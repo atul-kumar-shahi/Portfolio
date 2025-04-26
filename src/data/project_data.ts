@@ -24,5 +24,29 @@ export const portfolioProjects = [
       demoUrl: "https://atul-kumar-portfolio-app.vercel.app",
       githubUrl: "https://github.com/yourusername/portfolio-site",
     },
+    {
+      id: 4,
+      title: "Portfolio Website",
+      description: "A personal portfolio website built with Next.js and Tailwind CSS.",
+      image: "/portfolio.png",
+      demoUrl: "https://atul-kumar-portfolio-app.vercel.app",
+      githubUrl: "https://github.com/yourusername/portfolio-site",
+    },
+    {
+      id: 5,
+      title: "Portfolio Website",
+      description: "A personal portfolio website built with Next.js and Tailwind CSS.",
+      image: "/portfolio.png",
+      demoUrl: "https://atul-kumar-portfolio-app.vercel.app",
+      githubUrl: "https://github.com/yourusername/portfolio-site",
+    },
+    {
+      id: 6,
+      title: "Portfolio Website",
+      description: "A personal portfolio website built with Next.js and Tailwind CSS.",
+      image: "/portfolio.png",
+      demoUrl: "https://atul-kumar-portfolio-app.vercel.app",
+      githubUrl: "https://github.com/yourusername/portfolio-site",
+    },
   ];
   

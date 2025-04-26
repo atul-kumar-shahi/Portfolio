@@ -1,3 +1,5 @@
+import { StaticImageData } from "next/image";
+
 export interface Anime {
     id: number;
     title: string;
@@ -42,6 +44,8 @@ export interface Anime {
     title: string;
     artist: string;
     album: string;
-    imageUrl: string;
+    imageUrl?: string|StaticImageData;
     genre: string;
+    spotifyUrl:string
+    previewUrl:string
   }

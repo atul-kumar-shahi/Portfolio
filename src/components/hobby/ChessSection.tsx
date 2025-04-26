@@ -6,16 +6,9 @@ import Link from 'next/link';
 export default function ChessSection() {
   // Calculate stats
   const wins = chessData.filter(game => game.result === "win").length;
-  const losses = chessData.filter(game => game.result === "loss").length;
-  const draws = chessData.filter(game => game.result === "draw").length;
-  const totalGames = chessData.length;
+   const totalGames = chessData.length;
   const winRate = totalGames > 0 ? Math.round((wins / totalGames) * 100) : 0;
-  
-  // Get current rating (most recent game with rating)
-  const gamesWithRating = chessData.filter(game => game.rating !== undefined);
-  const currentRating = gamesWithRating.length > 0 
-    ? gamesWithRating.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())[0].rating 
-    : null;
+   
 
   return (
     <section id="chess" className="py-12 bg-white">
@@ -28,7 +21,7 @@ export default function ChessSection() {
             <div className="grid grid-cols-2 gap-4">
               <div className="bg-white p-4 rounded-lg">
                 <p className="text-sm text-gray-500">Current Rating</p>
-                <p className="text-2xl font-bold text-blue-600">{currentRating || 'N/A'}</p>
+                <p className="text-2xl font-bold text-blue-600">{950}</p>
               </div>
               <div className="bg-white p-4 rounded-lg">
                 <p className="text-sm text-gray-500">Win Rate</p>
@@ -41,19 +34,19 @@ export default function ChessSection() {
               <div className="bg-white p-4 rounded-lg">
                 <p className="text-sm text-gray-500">W / L / D</p>
                 <p className="text-lg font-bold">
-                  <span className="text-green-600">{wins}</span> / <span className="text-red-600">{losses}</span> / <span className="text-yellow-600">{draws}</span>
+                  <span className="text-green-600">{900}</span> / <span className="text-red-600">{700}</span> / <span className="text-yellow-600">{138}</span>
                 </p>
               </div>
             </div>
           </div>
           
           <div className="bg-gray-100 rounded-lg shadow-lg p-6">
-            <h3 className="text-xl font-bold mb-4">Recent Games</h3>
+            <h3 className=" text-gray-800 text-xl font-bold mb-4">Recent Games</h3>
             <div className="space-y-3">
               {chessData.slice(0, 3).map((game) => (
                 <div key={game.id} className="bg-white p-3 rounded-lg flex justify-between items-center">
                   <div>
-                    <p className="font-medium">vs. {game.opponent}</p>
+                    <p className=" text-gray-800 font-medium">vs. {game.opponent}</p>
                     <p className="text-sm text-gray-500">{game.platform} • {game.date}</p>
                   </div>
                   <div>
