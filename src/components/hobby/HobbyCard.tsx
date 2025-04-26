@@ -9,8 +9,8 @@ interface HobbyCardProps {
   title: string;
   description: string;
   count: number;
-  iconPath?: string; // For static images (.webp etc.)
-  animationData?: LottieComponentProps["animationData"]; // Typed Lottie JSON
+  iconPath?: string;
+  animationData?: LottieComponentProps["animationData"];
   bgColor: string;
 }
 
@@ -25,13 +25,14 @@ export default function HobbyCard({
   return (
     <div className={`${bgColor} rounded-lg shadow-lg p-6 transition-transform hover:scale-105`}>
       <div className="flex flex-col items-center text-white">
-        <div className="relative h-16 w-16 rounded-full overflow-hidden bg-white mb-4 flex items-center justify-center">
+        {/* Made container bigger */}
+        <div className="relative h-24 w-24 rounded-full overflow-hidden bg-white mb-4 flex items-center justify-center">
           {animationData ? (
             <Lottie
               animationData={animationData}
               loop
               autoplay
-              className="h-12 w-12"
+              className="h-20 w-20" // Made Lottie animation bigger
             />
           ) : (
             iconPath && (
@@ -40,7 +41,7 @@ export default function HobbyCard({
                 alt={title}
                 fill
                 className="object-cover"
-                sizes="64px"
+                sizes="96px" // Updated to match new size
               />
             )
           )}

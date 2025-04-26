@@ -49,6 +49,7 @@ export function NavigationBar() {
     { name: "Home", link: "/" },
     { name: "Projects", link: "/projects" },
     { name: "Apps", link: "/apps" },
+    { name: "Hobby", link: "/hobby" },
     { name: "Contact", link: "/contact" },
   ];
 

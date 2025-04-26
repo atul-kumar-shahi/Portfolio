@@ -4,7 +4,7 @@ export const movieData: Movie[] = [
   {
     id: 1,
     title: "Inception",
-    imageUrl: "/api/placeholder/200/300",
+    imageUrl: "https://image.tmdb.org/t/p/w500/edv5CZvWj09upOsy2Y6IwDhK8bt.jpg",
     genre: ["Sci-Fi", "Action", "Thriller"],
     rating: 8.8,
     director: "Christopher Nolan",
@@ -13,7 +13,7 @@ export const movieData: Movie[] = [
   {
     id: 2,
     title: "The Shawshank Redemption",
-    imageUrl: "/api/placeholder/200/300",
+    imageUrl: "https://image.tmdb.org/t/p/w500/q6y0Go1tsGEsmtFryDOJo3dEmqu.jpg",
     genre: ["Drama"],
     rating: 9.3,
     director: "Frank Darabont",
@@ -22,7 +22,7 @@ export const movieData: Movie[] = [
   {
     id: 3,
     title: "Parasite",
-    imageUrl: "/api/placeholder/200/300",
+    imageUrl: "https://image.tmdb.org/t/p/w500/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg",
     genre: ["Thriller", "Drama", "Comedy"],
     rating: 8.6,
     director: "Bong Joon-ho",
@@ -31,7 +31,7 @@ export const movieData: Movie[] = [
   {
     id: 4,
     title: "Everything Everywhere All at Once",
-    imageUrl: "/api/placeholder/200/300",
+    imageUrl: "https://image.tmdb.org/t/p/w500/w3LxiVYdWWRvEVdn5RYq6jIqkb1.jpg",
     genre: ["Adventure", "Action", "Sci-Fi"],
     rating: 8.9,
     director: "Daniels",

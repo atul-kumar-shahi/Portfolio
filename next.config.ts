@@ -30,6 +30,10 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "en.wikipedia.org",
       },
+      {
+        protocol: "https",
+        hostname: "image.tmdb.org",
+      },
 
 
     ],

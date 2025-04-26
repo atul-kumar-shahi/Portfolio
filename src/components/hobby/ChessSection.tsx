@@ -1,6 +1,7 @@
 "use client";
 
 import { chessData } from '@/data/chess_data';
+import Link from 'next/link';
 
 export default function ChessSection() {
   // Calculate stats
@@ -23,7 +24,7 @@ export default function ChessSection() {
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
           <div className="bg-gray-100 rounded-lg shadow-lg p-6">
-            <h3 className="text-xl font-bold mb-4">Stats Summary</h3>
+            <h3 className="text-xl text-teal-600 font-bold mb-4">Stats Summary</h3>
             <div className="grid grid-cols-2 gap-4">
               <div className="bg-white p-4 rounded-lg">
                 <p className="text-sm text-gray-500">Current Rating</p>
@@ -35,7 +36,7 @@ export default function ChessSection() {
               </div>
               <div className="bg-white p-4 rounded-lg">
                 <p className="text-sm text-gray-500">Total Games</p>
-                <p className="text-2xl font-bold">{totalGames}</p>
+                <p className=" text-gray-700 text-2xl font-bold">1738</p>
               </div>
               <div className="bg-white p-4 rounded-lg">
                 <p className="text-sm text-gray-500">W / L / D</p>
@@ -68,6 +69,13 @@ export default function ChessSection() {
             </div>
           </div>
         </div>
+            <div className="flex justify-center">
+              <Link href="https://www.chess.com/member/ATULSHAHI" target="_blank" rel="noopener noreferrer">
+                <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-lg shadow transition-all duration-300">
+                  View My Chess.com Profile
+                </button>
+              </Link>
+            </div>
       </div>
     </section>
   );

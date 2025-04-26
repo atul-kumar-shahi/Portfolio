@@ -5,12 +5,26 @@ import Image from 'next/image';
 
 export default function AnimeSection() {
   const [filter, setFilter] = useState<'all' | 'completed' | 'watching'>('all');
+  const [currentPage,setCurrentPage]=useState(1);
+
+  const itemsPerPage=6;
   
   const filteredAnime = animeData.filter(anime => {
     if (filter === 'all') return true;
     if (filter === 'completed') return anime.completed;
     return !anime.completed;
   });
+  
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = filteredAnime.slice(indexOfFirstItem, indexOfLastItem);
+  
+
+  
+
+
+  const totalPages = Math.ceil(filteredAnime.length / itemsPerPage);
+
 
   return (
     <section id="anime" className="py-12 bg-gray-100">
@@ -20,19 +34,27 @@ export default function AnimeSection() {
         <div className="flex justify-center mb-8">
           <div className="inline-flex rounded-md shadow-sm" role="group">
             <button 
-              onClick={() => setFilter('all')} 
+              onClick={() => {setFilter('all');
+                setCurrentPage(1);
+              } }
               className={`px-4 py-2 text-sm font-medium rounded-l-lg ${filter === 'all' ? 'bg-blue-600 text-white' : 'bg-white text-gray-700'}`}
             >
               All
             </button>
             <button 
-              onClick={() => setFilter('completed')} 
+              onClick={() => {setFilter('completed')
+                setCurrentPage(1);
+
+              } }
               className={`px-4 py-2 text-sm font-medium ${filter === 'completed' ? 'bg-blue-600 text-white' : 'bg-white text-gray-700'}`}
             >
               Completed
             </button>
             <button 
-              onClick={() => setFilter('watching')} 
+              onClick={() =>{ setFilter('watching')
+                setCurrentPage(1);
+
+              } }
               className={`px-4 py-2 text-sm font-medium rounded-r-lg ${filter === 'watching' ? 'bg-blue-600 text-white' : 'bg-white text-gray-700'}`}
             >
               Watching
@@ -41,7 +63,7 @@ export default function AnimeSection() {
         </div>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredAnime.map((anime) => (
+          {currentItems.map((anime) => (
             <div key={anime.id} className="bg-white rounded-lg shadow-lg overflow-hidden">
               <div className="h-64 bg-gray-200 relative">
                 <Image 
@@ -77,6 +99,20 @@ export default function AnimeSection() {
             </div>
           ))}
         </div>
+        <div className="flex justify-center mt-8 space-x-2">
+  {Array.from({ length: totalPages }, (_, i) => (
+    <button
+      key={i}
+      onClick={() => setCurrentPage(i + 1)}
+      className={`px-3 py-1 rounded ${
+        currentPage === i + 1 ? 'bg-blue-600 text-white' : 'bg-gray-300 text-gray-800'
+      }`}
+    >
+      {i + 1}
+    </button>
+  ))}
+</div>
+
       </div>
     </section>
   );
