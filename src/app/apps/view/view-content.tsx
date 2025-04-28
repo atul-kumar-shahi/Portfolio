@@ -13,11 +13,13 @@ import {
 } from "lucide-react";
 import { appdata } from "@/data/app_cards";
 import { useSearchParams } from "next/navigation";
+import Link from "next/link";
 
 const ViewPage = () => {
   const searchParams = useSearchParams();
   const appId = searchParams.get("appId");
   const data = appdata.find((app) => app.id === appId);
+
 
   if (!data) return <div className="text-white p-8">App not found.</div>;
 
@@ -59,10 +61,14 @@ const ViewPage = () => {
               </div>
             </div>
             <div className="flex flex-wrap gap-4">
+            <Link href={data?.downloadLink||'/'}>
               <button className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white py-3 px-8 rounded-md font-semibold transition-all shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40 hover:-translate-y-1">
+              
                 <Download className="w-5 h-5 inline-block mr-2" />
                 Download Now
+              
               </button>
+              </Link>
               <button className="bg-transparent border border-blue-500 text-blue-400 hover:bg-blue-500/10 py-3 px-8 rounded-md font-semibold transition-all">
                 <Smartphone className="w-5 h-5 inline-block mr-2" />
                 Available Platforms
