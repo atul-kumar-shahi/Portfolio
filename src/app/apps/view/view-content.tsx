@@ -14,17 +14,17 @@ import {
 import { appdata } from "@/data/app_cards";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
+import { AppleCardsCarouselDemo } from "@/components/Carousel";
 
 const ViewPage = () => {
   const searchParams = useSearchParams();
   const appId = searchParams.get("appId");
   const data = appdata.find((app) => app.id === appId);
 
-
   if (!data) return <div className="text-white p-8">App not found.</div>;
 
   return (
-    <div className="min-h-screen dark:bg-black text-white flex flex-col items-center px-6 md:px-12">
+    <div className="min-h-screen dark:bg-gray-900 text-white flex flex-col items-center px-6 md:px-12">
       <div className="relative w-full min-h-[550px] overflow-hidden">
         <div className="relative z-20 container mx-auto px-6 pt-32 pb-20">
           <div className="max-w-3xl">
@@ -61,13 +61,11 @@ const ViewPage = () => {
               </div>
             </div>
             <div className="flex flex-wrap gap-4">
-            <Link href={data?.downloadLink||'/'}>
-              <button className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white py-3 px-8 rounded-md font-semibold transition-all shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40 hover:-translate-y-1">
-              
-                <Download className="w-5 h-5 inline-block mr-2" />
-                Download Now
-              
-              </button>
+              <Link href={data?.downloadLink || "/"}>
+                <button className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white py-3 px-8 rounded-md font-semibold transition-all shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40 hover:-translate-y-1">
+                  <Download className="w-5 h-5 inline-block mr-2" />
+                  Download Now
+                </button>
               </Link>
               <button className="bg-transparent border border-blue-500 text-blue-400 hover:bg-blue-500/10 py-3 px-8 rounded-md font-semibold transition-all">
                 <Smartphone className="w-5 h-5 inline-block mr-2" />
@@ -91,26 +89,11 @@ const ViewPage = () => {
         highlight={data?.highlights}
       />
 
-      <div className="bg-gray-900 py-16 mx-24">
+      <div className="bg-gray-900 py-16 w-full">
         <div className="container mx-auto px-6">
-          <h2 className="text-3xl font-bold mb-8 mx-24">App Screenshots</h2>
-          <div className="overflow-x-auto pb-6 mx-24">
-            <div className="flex gap-4 min-w-max">
-              {data?.screenShot.map((item: string) => (
-                <div
-                  key={item}
-                  className="min-w-[280px] h-[600px] bg-gray-800 rounded-xl overflow-hidden border border-gray-700 shadow-lg"
-                >
-                  <Image
-                    src={item}
-                    alt={`App screenshot ${item}`}
-                    width={280}
-                    height={600}
-                    className="object-cover h-full w-full"
-                  />
-                </div>
-              ))}
-            </div>
+          <h2 className="text-3xl font-bold mb-8">App Screenshots</h2>
+          <div className="w-full [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+            <AppleCardsCarouselDemo id={data.id} />
           </div>
         </div>
       </div>

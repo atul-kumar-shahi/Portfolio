@@ -20,7 +20,6 @@ const DiscriptionPage = ({highlight,description} : HighlightsPageProps) => {
       const [showFullDescription, setShowFullDescription] = useState(false);
       const [mounted, setMounted] = useState(false);
 
- console.log(description);
       useEffect(() => {
         setMounted(true);
       }, []);

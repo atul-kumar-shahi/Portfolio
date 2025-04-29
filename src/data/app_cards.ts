@@ -37,7 +37,7 @@ export const appdata = [
     techStackt: ["flutter", "supabase", "Dart"],
     downloadLink:
       "https://github.com/atul-kumar-shahi/BLogApk/raw/refs/heads/main/base.apk",
-    gitHubLink: "https://github.com/atul-kumar-shahi/Portfolio",
+    gitHubLink: "https://github.com/atul-kumar-shahi/E-blog.git",
     videoUrl:
       "https://res.cloudinary.com/dp2i02kmy/video/upload/v1745136185/1494295-hd_1920_1080_24fps_fbkpoj.mp4",
     logo: "https://res.cloudinary.com/dp2i02kmy/image/upload/v1745066636/logo_tjdy9c.jpg",
@@ -52,7 +52,7 @@ export const appdata = [
   {
     id: "Meals",
     title: "CookMeal",
-    imageLink: "./window.svg",
+    imageLink: "https://res.cloudinary.com/dp2i02kmy/image/upload/v1745926435/Gemini_Generated_Image_s7exa9s7exa9s7ex_m6myvm.jpg",
     description:
       "Create your customized meal, save it, view recipes, and mark your favorites!",
     fullDescription: [
@@ -100,51 +100,5 @@ export const appdata = [
 
     ],
   },
-  {
-    id: "note-taking",
-    title: "Note Taking",
-    imageLink: "./window.svg",
-    description:
-      "Take notes quickly and organize them with tags and categories.",
-    fullDescription: [
-      "Designed for fast, intuitive note-taking, this app allows users to create, categorize, and search notes instantly.",
-      "The sleek and minimal UI provides distraction-free writing, with tagging and markdown support for power users.",
-      "Built with Flutter and Supabase, it offers real-time syncing and secure cloud storage for all notes.",
-      "Offline capabilities ensure you never lose access to important notes even without internet connectivity.",
-    ],
-    highlights: [
-      {
-        title: "Tag-Based Organization",
-        description: "Organize notes with tags, folders, and color coding",
-        color: "text-pink-400",
-      },
-      {
-        title: "Markdown Support",
-        description: "Write notes using markdown for better formatting",
-        color: "text-green-400",
-      },
-      {
-        title: "Cloud & Local Sync",
-        description: "Sync notes securely across devices with Supabase",
-        color: "text-blue-400",
-      },
-      {
-        title: "Offline First",
-        description: "Create and view notes even when you're offline",
-        color: "text-purple-400",
-      },
-    ],
-    techStackt: ["flutter", "supabase", "Dart"],
-    gitHubLink: "https://github.com/atul-kumar-shahi/Portfolio",
-    videoUrl:
-      "https://res.cloudinary.com/dp2i02kmy/video/upload/v1745136185/1494295-hd_1920_1080_24fps_fbkpoj.mp4",
-    logo: "https://res.cloudinary.com/dp2i02kmy/image/upload/v1745066636/logo_tjdy9c.jpg",
-    screenShot: [
-      "https://res.cloudinary.com/dp2i02kmy/image/upload/v1745066658/signUp_cydh4v.jpg",
-      "https://res.cloudinary.com/dp2i02kmy/image/upload/v1745066651/signIn_yqeofx.jpg",
-      "https://res.cloudinary.com/dp2i02kmy/image/upload/v1745066621/blogUpload_yfqhox.jpg",
-      "https://res.cloudinary.com/dp2i02kmy/image/upload/v1745066603/blogPage_tn0kzc.jpg",
-      "https://res.cloudinary.com/dp2i02kmy/image/upload/v1745066575/allBlogs_ieufe5.jpg",
-    ],
-  },
+ 
 ];

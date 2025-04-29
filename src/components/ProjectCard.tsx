@@ -3,6 +3,8 @@ import { useRef, MouseEvent } from "react";
 import Image from "next/image";
 import { portfolioProjects } from "@/data/project_data";
 import { ExternalLink } from "lucide-react";
+import { Button } from "./ui/button";
+import Link from "next/link";
 
 interface Project {
   id: number;
@@ -93,6 +95,19 @@ const ProjectCards = () => {
           <SpotlightCard key={project.id} project={project} />
         ))}
       </div>
+
+      <div className="items-center flex justify-center pt-10">
+  <Link
+    href="https://github.com/atul-kumar-shahi?tab=repositories"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <Button>
+      View all Projects
+    </Button>
+  </Link>
+</div>
+
     </section>
   );
 };
